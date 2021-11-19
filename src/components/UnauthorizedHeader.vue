@@ -26,7 +26,7 @@
           solo-inverted
         ></v-text-field>
       </v-responsive>
-      <v-btn outlined color="#E50914" href="/login" depressed class="ml-10">
+      <v-btn outlined color="#E50914" @click="goToLogin()" depressed class="ml-10">
         login
       </v-btn>
     </v-container>
@@ -40,26 +40,21 @@ export default {
     navItems: [
       {
         id: 1,
-        title: "Tìm kiếm",
+        title: "Sách",
         href: "/search",
       },
       {
         id: 2,
-        title: "Tiểu thuyết",
-        href: "/search",
-      },
-      {
-        id: 3,
-        title: "Truyện",
-        href: "/search",
-      },
-      {
-        id: 4,
         title: "Tất cả",
-        href: "/search",
+        href: "/all",
       },
     ],
   }),
+  methods: {
+    goToLogin() {
+      this.$router.push('/login')
+    }
+  },
 };
 </script>
 

@@ -4,14 +4,14 @@
       <v-row align="center" justify="center" dense>
         <v-col cols="12" sm="8" md="4" lg="4">
           <v-card elevation="0">
-            <a href="/" name="logo" title="logo" target="_blank">
+            <div class="banner-logo" @click="goToHome()" name="logo" title="logo" target="_blank">
               <v-img
                 src="@/assets/logo.png"
                 alt="Fedorae Education Log"
                 contain
                 height="200"
               ></v-img>
-            </a>
+            </div>
             <v-card-text>
               <v-form>
                 <v-text-field
@@ -51,3 +51,19 @@
     </v-container>
   </v-main>
 </template>
+<script>
+export default {
+  name: 'Login',
+  methods: {
+    goToHome() {
+      this.$router.push('/')
+    }
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.banner-logo{
+  cursor: pointer;
+}
+</style>
