@@ -8,14 +8,19 @@
         </v-sheet>
       </v-container>
     </v-main>
+    <loading :class="{ show: isLoading }" />
   </v-app>
 </template>
 
 <script>
 import UnauthorizedHeader from "./components/UnauthorizedHeader.vue";
+import Loading from "./components/Loading";
+import { mapState } from "vuex";
+
 export default {
   components: {
     UnauthorizedHeader,
+    Loading,
   },
   name: "App",
   data() {
@@ -27,7 +32,9 @@ export default {
     if (this.$route.path === "/login") {
       this.disabledHeader = true;
     }
-  
+  },
+  computed: {
+    ...mapState(["isLoading"]),
   },
   watch: {
     "$route.fullPath"(val) {

@@ -27,7 +27,6 @@
                   name="password"
                   prepend-inner-icon="mdi-lock"
                   type="password"
-                  suffix="| Forgot?"
                   class="rounded-0"
                   outlined
                 ></v-text-field>
@@ -35,7 +34,7 @@
                   >Login</v-btn
                 >
                 <v-card-actions class="text--secondary">
-                  <v-checkbox color="#E50914" label="Remember me"></v-checkbox>
+                  <!-- <v-checkbox color="#E50914" label="Remember me"></v-checkbox> -->
                   <v-spacer></v-spacer>
                   No account?
                   <router-link class="ml-3" :to="{ name: 'SignUp' }"
