@@ -26,10 +26,14 @@ export default {
   data() {
     return {
       disabledHeader: false,
+      routeDisabledHeader: [
+        "/login",
+        "/signup"
+      ]
     };
   },
   created() {
-    if (this.$route.path === "/login") {
+    if (this.routeDisabledHeader.includes(this.$route.path)) {
       this.disabledHeader = true;
     }
   },
@@ -37,8 +41,8 @@ export default {
     ...mapState(["isLoading"]),
   },
   watch: {
-    "$route.fullPath"(val) {
-      val !== "/login"
+    "$route.path"(val) {
+      !this.routeDisabledHeader.includes(val)
         ? (this.disabledHeader = false)
         : (this.disabledHeader = true);
     },

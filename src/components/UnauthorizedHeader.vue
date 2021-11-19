@@ -9,7 +9,7 @@
       <v-btn
         v-for="navItem in navItems"
         :key="navItem.id"
-        :href="navItem.href"
+        @click="goToNav(navItem.href)"
         text
       >
         {{ navItem.title }}
@@ -26,7 +26,13 @@
           solo-inverted
         ></v-text-field>
       </v-responsive>
-      <v-btn outlined color="#E50914" @click="goToLogin()" depressed class="ml-10">
+      <v-btn
+        outlined
+        color="#E50914"
+        @click="goToLogin()"
+        depressed
+        class="ml-10"
+      >
         login
       </v-btn>
     </v-container>
@@ -52,8 +58,11 @@ export default {
   }),
   methods: {
     goToLogin() {
-      this.$router.push('/login')
-    }
+      this.$router.push("/login");
+    },
+    goToNav(href) {
+      this.$router.push(href);
+    },
   },
 };
 </script>

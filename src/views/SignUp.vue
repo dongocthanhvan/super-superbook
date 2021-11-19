@@ -4,11 +4,11 @@
       <v-row align="center" justify="center" dense>
         <v-col cols="12" sm="8" md="4" lg="4">
           <v-card elevation="0">
-            <a
-              href="https://edu-fedorae.netlify.app"
+            <div
+              @click="goToHome()"
               name="Fedorae Education"
               title="Fedorae Education"
-              target="_blank"
+              class="banner-logo"
             >
               <v-img
                 src="@/assets/logo.png"
@@ -16,7 +16,7 @@
                 contain
                 height="200"
               ></v-img>
-            </a>
+            </div>
             <v-card-text>
               <v-form>
                 <v-text-field
@@ -70,3 +70,19 @@
     </v-container>
   </v-main>
 </template>
+<script>
+export default {
+  name: "Login",
+  methods: {
+    goToHome() {
+      this.$router.push("/");
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.banner-logo {
+  cursor: pointer;
+}
+</style>

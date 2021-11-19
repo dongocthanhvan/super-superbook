@@ -3,9 +3,9 @@ export default {
     users: {},
   },
   getters: {
-    isLogin: (state) => {
+    isLogin: () => {
       //   let userObj = parseJwt(state[CONFIG_ACCESS_TOKEN]);
-      let userObj = null;
+      let userObj = {};
       if (userObj) {
         return true;
       } else {

@@ -3,8 +3,9 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 // import post from './modulePost'
-// import user from './moduleUser'
+import user from "./user";
 const store = new Vuex.Store({
+  strict: process.env.NODE_ENV !== 'production',
   state: {
     isLoading: false,
   },
@@ -18,10 +19,9 @@ const store = new Vuex.Store({
       state.isLoading = loading;
     },
   },
-  // modules: {
-  //     post,
-  //     user
-  // }
+  modules: {
+    user,
+  },
 });
 
 export default store;
