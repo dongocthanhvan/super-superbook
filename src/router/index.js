@@ -5,7 +5,7 @@ import Login from "../views/Login.vue";
 import SignUp from "../views/SignUp.vue";
 import Search from "../views/Search.vue";
 import AllComic from "../views/AllComic.vue";
-
+import { ifAuthenticated } from "../plugins/authenticate";
 Vue.use(VueRouter);
 
 const routes = [
@@ -13,15 +13,14 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+    beforeEnter: ifAuthenticated,
   },
   {
     path: "/about",
     name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    beforeEnter: ifAuthenticated,
   },
   {
     path: "/login",
@@ -37,11 +36,13 @@ const routes = [
     path: "/search",
     name: "Search",
     component: Search,
+    beforeEnter: ifAuthenticated,
   },
   {
     path: "/all",
     name: "All",
     component: AllComic,
+    beforeEnter: ifAuthenticated,
   },
 ];
 
