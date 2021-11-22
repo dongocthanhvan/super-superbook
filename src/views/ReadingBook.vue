@@ -17,7 +17,17 @@
           </v-tabs>
         </v-card>
       </v-col>
-      <v-col cols="9" class="flex justify-center h-full">
+      <v-col v-if="loading" cols="9" class="flex justify-center h-full">
+        <div class="flex flex-col gap-1">
+          <v-skeleton-loader
+            v-for="item in 2"
+            :key="item"
+            class="w-full h-full"
+            type="card"
+          ></v-skeleton-loader>
+        </div>
+      </v-col>
+      <v-col v-if="!loading" cols="9" class="flex justify-center h-full">
         <div class="flex flex-col gap-2">
           <div
             class="relative w-full overflow-auto border-2 border-red-300 rounded-md "
@@ -61,11 +71,12 @@ export default {
       arrowRight,
       listChapter: [
         { id: 1, name: "Chap I", page: 1 },
-        { id: 2, name: "Chap II", page: 40 },
+        { id: 2, name: "Chap II", page: 8 },
       ],
       content: "<h1>hello world 4</h1> <div> v 3r1 vr 31v 13r </div>",
       maxPage: 10,
       page: 1,
+      loading: false,
     };
   },
   methods: {
