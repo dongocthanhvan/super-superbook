@@ -11,7 +11,7 @@
               height="650px"
             >
               <div class="mt-5 text-center">
-                <v-btn class="white--text caption" href="/watch" outlined height="70px" width="150px"
+                <v-btn class="white--text caption" @click="goToReading" outlined height="70px" width="150px"
                   ><h1>ĐỌC SÁCH</h1>
                 </v-btn>
               </div>
@@ -113,7 +113,12 @@
 
 <script>
 export default {
-    name: 'Detail'
+    name: 'Detail',
+    methods: {
+      goToReading() {
+        this.$router.push('/books/1/read')
+      }
+    },
 };
 </script>
 

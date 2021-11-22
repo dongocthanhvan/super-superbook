@@ -1,5 +1,5 @@
 <template>
-  <v-main>
+  <v-main style="margin-top:15px">
     <v-container class="fill-height" fluid>
       <v-row align="center" justify="center" dense>
         <v-col cols="12" sm="8" md="4" lg="4">

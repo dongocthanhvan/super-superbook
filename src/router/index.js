@@ -6,6 +6,7 @@ import SignUp from "../views/SignUp.vue";
 import Search from "../views/Search.vue";
 import AllComic from "../views/AllComic.vue";
 import DetailBook from "../views/DetailBook.vue";
+import ReadingBook from "../views/ReadingBook.vue";
 import { ifAuthenticated } from "../plugins/authenticate";
 Vue.use(VueRouter);
 
@@ -49,6 +50,12 @@ const routes = [
     path: "/books/:id",
     name: "Detail",
     component: DetailBook,
+    beforeEnter: ifAuthenticated,
+  },
+  {
+    path: "/books/:id/read",
+    name: "Detail",
+    component: ReadingBook,
     beforeEnter: ifAuthenticated,
   },
 ];
