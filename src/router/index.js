@@ -54,7 +54,7 @@ const routes = [
   },
   {
     path: "/books/:id/read",
-    name: "Detail",
+    name: "Reading book",
     component: ReadingBook,
     beforeEnter: ifAuthenticated,
   },

@@ -2,7 +2,6 @@ import store from '../store'
 
 // Router chỉ cho phép vào khi đã đăng nhập
 const ifAuthenticated = (to, from, next) => {
-    console.log(store.getters)
     if(store.getters.isLogin === true){
         next();
     } else {
