@@ -1,6 +1,6 @@
 <template>
   <v-app-bar app color="white" flat>
-    <div class="logo-container ml-10">
+    <div class="ml-10 logo-container">
       <router-link to="/">
         <v-img contain id="logo" :src="require('../../src/assets/logo.svg')" />
       </router-link>
@@ -52,7 +52,7 @@ export default {
       {
         id: 2,
         title: "Tất cả",
-        href: "/all",
+        href: "/books",
       },
     ],
   }),

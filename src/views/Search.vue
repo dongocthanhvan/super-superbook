@@ -4,7 +4,13 @@
       <v-row>
         <v-col align="center">
           <h3>Thể loại:</h3>
-          <v-select clearable outlined :items="listCategory" v-model="filters.category" label="Standard"></v-select>
+          <v-select
+            clearable
+            outlined
+            :items="listCategory"
+            v-model="filters.category"
+            label="Standard"
+          ></v-select>
         </v-col>
         <v-col align="center">
           <h3>Quốc gia:</h3>
@@ -16,7 +22,7 @@
         </v-col>
         <v-col align="center">
           <h3>Sắp xếp:</h3>
-          <v-select clearable outlined  label="Standard"></v-select>
+          <v-select clearable outlined label="Standard"></v-select>
         </v-col>
       </v-row>
     </v-container>
@@ -32,8 +38,8 @@
               height="390px"
             >
               <h1 class="text-center font-size">Lorem & Ipsum</h1>
-              <div class="text-center mt-2">
-                <v-btn class="white--text caption" href="/shop" outlined
+              <div class="mt-2 text-center">
+                <v-btn class="white--text caption" @click="goToDetail" outlined
                   >EXPLORE
                 </v-btn>
               </div>
@@ -42,24 +48,24 @@
         </v-col>
       </v-row>
     </div>
-
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Search',
+  name: "Search",
   data() {
     return {
-      listCategory: [
-        '1',
-        '2',
-        '3',
-      ],
+      listCategory: ["1", "2", "3"],
       filters: {
-        category: ''
-      }
-    }
+        category: "",
+      },
+    };
+  },
+  methods: {
+    goToDetail() {
+      this.$router.push("/books/1");
+    },
   },
 };
 </script>

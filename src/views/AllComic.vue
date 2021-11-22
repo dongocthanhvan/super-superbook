@@ -12,8 +12,9 @@
               height="390px"
             >
               <h1 class="text-center font-size">Lorem & Ipsum</h1>
-              <div class="text-center mt-2">
-                <v-btn class="white--text caption" href="/shop" outlined
+              
+              <div class="mt-2 text-center">
+                <v-btn class="white--text caption" @click="goToDetail" outlined
                   >EXPLORE
                 </v-btn>
               </div>
@@ -22,12 +23,18 @@
         </v-col>
       </v-row>
     </div>
-
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Books",
+  methods: {
+    goToDetail() {
+      this.$router.push('/books/1')
+    }
+  },
+};
 </script>
 
 <style>
