@@ -27,6 +27,7 @@
         ></v-text-field>
       </v-responsive>
       <v-btn
+        v-if="!curUser"
         outlined
         color="#E50914"
         @click="goToLogin()"
@@ -35,6 +36,23 @@
       >
         login
       </v-btn>
+      <div v-else class="ml-10">
+        <v-menu offset-y>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn color="primary" dark v-bind="attrs" v-on="on">
+              Hi {{ curUser.fullName }}
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item link>
+              <v-list-item-title>{{ items[0].title }}</v-list-item-title>
+            </v-list-item>
+            <v-list-item link>
+              <v-list-item-title @click.prevent="handleLogout">{{  items[1].title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
     </v-container>
   </v-app-bar>
 </template>
@@ -55,6 +73,11 @@ export default {
         href: "/books",
       },
     ],
+    items: [
+      { id: 1, title: "Dashboard" },
+      { id: 2, title: "Logout" },
+    ],
+    curUser: JSON.parse(localStorage.getItem("curUser")),
   }),
   methods: {
     goToLogin() {
@@ -63,6 +86,10 @@ export default {
     goToNav(href) {
       this.$router.push(href);
     },
+    handleLogout(){
+      this.$store.dispatch('handleLogout');
+      window.location.reload();
+    }
   },
 };
 </script>

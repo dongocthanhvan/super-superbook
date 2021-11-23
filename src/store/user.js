@@ -1,5 +1,4 @@
 import axiosInstance from "../plugins/axios";
-import { parseJwt } from "../helpers";
 export default {
   state: {
     curUser: {},
@@ -44,8 +43,9 @@ export default {
         }
       } catch (error) {}
     },
-    async handleLogout({ commit }) {
+    handleLogout({ commit }) {
       commit("SET_LOGOUT");
+      return null;
     },
   },
   mutations: {
@@ -57,7 +57,7 @@ export default {
     },
     SET_LOGOUT(state) {
       localStorage.removeItem("access_vue_token");
-      localStorage.removeItem(curUser);
+      localStorage.removeItem('curUser');
     },
   },
 };
