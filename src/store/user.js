@@ -13,6 +13,11 @@ export default {
       }
     },
   },
-  actions: {},
+  actions: {
+    async handleSignUp(state, data) {
+      console.log(state)
+      console.log(data);
+    },
+  },
   mutations: {},
 };

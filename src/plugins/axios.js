@@ -1,9 +1,10 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: '',
+  baseURL: 'https://reading-app-thptpm.herokuapp.com/api',
   headers: {
-    'accept': 'application/json'
+    'accept': 'application/json',
+    'Authorization': 'Bearer ' + localStorage.getItem('access_token')
   }
 });
 
