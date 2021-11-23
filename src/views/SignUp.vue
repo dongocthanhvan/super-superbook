@@ -128,14 +128,14 @@
 <script>
 import { validationMixin } from "vuelidate";
 import dayjs from "dayjs";
-import { required, maxLength, email } from "vuelidate/lib/validators";
+import { required, maxLength, email, sameAs } from "vuelidate/lib/validators";
 export default {
   mixins: [validationMixin],
   validations: {
     name: { required, maxLength: maxLength(20) },
     email: { required, email },
     password: { required },
-    password2: { required },
+    password2: { required, sameAsPassword: sameAs('password') },
     phoneNumber: { required },
     dayOfBirth: { required },
   },
@@ -147,7 +147,7 @@ export default {
       password: null,
       password2: null,
       phoneNumber: null,
-      dayOfBirth: null,
+      dayOfBirth: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
       menu2: false,
     };
   },
@@ -177,6 +177,7 @@ export default {
       const errors = [];
       if (!this.$v.password2.$dirty) return errors;
       !this.$v.password2.required && errors.push("Re-Password is required");
+      !this.$v.password2.sameAsPassword && errors.push("Passwords must be identical.");
       return errors;
     },
     phoneErrors() {
@@ -196,12 +197,17 @@ export default {
     goToHome() {
       this.$router.push("/");
     },
-    handleSignUp() {
+    async handleSignUp() {
       if (this.$v.$touch()) {
         return;
       } else {
-        this.dayOfBirth = dayjs(this.dayOfBirth).format("DD/MM/YYYY");
-        console.log(this.dayOfBirth);
+        // const data = {
+        //   fullName: this.name,
+        //   email: this.email,
+          
+        // }
+        this.dayOfBirth = (dayjs(this.dayOfBirth).format("DD/MM/YYYY"));
+        // const res = await this.$store.dispatch('user/handleSignUp',)
       }
     },
   },
