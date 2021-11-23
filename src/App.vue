@@ -9,13 +9,14 @@
       </v-container>
     </v-main>
     <loading :class="{ show: isLoading }" />
+    <notifications group="foo" position="bottom right" />
   </v-app>
 </template>
 
 <script>
 import UnauthorizedHeader from "./components/UnauthorizedHeader.vue";
 import Loading from "./components/Loading";
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   components: {
@@ -26,16 +27,14 @@ export default {
   data() {
     return {
       disabledHeader: false,
-      routeDisabledHeader: [
-        "/login",
-        "/signup"
-      ]
+      routeDisabledHeader: ["/login", "/signup"],
     };
   },
   created() {
     if (this.routeDisabledHeader.includes(this.$route.path)) {
       this.disabledHeader = true;
     }
+    this.checkLogin();
   },
   computed: {
     ...mapState(["isLoading"]),
@@ -46,6 +45,9 @@ export default {
         ? (this.disabledHeader = false)
         : (this.disabledHeader = true);
     },
+  },
+  methods: {
+    ...mapActions(["checkLogin"]),
   },
 };
 </script>

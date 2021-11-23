@@ -5,7 +5,7 @@ Vue.use(Vuex);
 // import post from './modulePost'
 import user from "./user";
 const store = new Vuex.Store({
-  strict: process.env.NODE_ENV !== 'production',
+  // strict: process.env.NODE_ENV !== 'production',
   state: {
     isLoading: false,
   },

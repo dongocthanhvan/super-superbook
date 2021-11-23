@@ -7,7 +7,7 @@ import Search from "../views/Search.vue";
 import AllComic from "../views/AllComic.vue";
 import DetailBook from "../views/DetailBook.vue";
 import ReadingBook from "../views/ReadingBook.vue";
-import { ifAuthenticated } from "../plugins/authenticate";
+import { ifAuthenticated, ifNotAuthenticated } from "../plugins/authenticate";
 Vue.use(VueRouter);
 
 const routes = [
@@ -28,11 +28,13 @@ const routes = [
     path: "/login",
     name: "Login",
     component: Login,
+    beforeEnter: ifNotAuthenticated
   },
   {
     path: "/signup",
     name: "SignUp",
     component: SignUp,
+    beforeEnter: ifNotAuthenticated
   },
   {
     path: "/search",
