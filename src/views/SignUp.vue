@@ -101,7 +101,7 @@
                   ></v-date-picker>
                 </v-menu>
                 <v-btn
-                  @click="handleSignUp"
+                  @click.prevent="handleSignUp"
                   class="rounded-0"
                   color="#E50914"
                   x-large
@@ -135,7 +135,7 @@ export default {
     name: { required, maxLength: maxLength(20) },
     email: { required, email },
     password: { required },
-    password2: { required, sameAsPassword: sameAs('password') },
+    password2: { required, sameAsPassword: sameAs("password") },
     phoneNumber: { required },
     dayOfBirth: { required },
   },
@@ -147,7 +147,9 @@ export default {
       password: null,
       password2: null,
       phoneNumber: null,
-      dayOfBirth: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+      dayOfBirth: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+        .toISOString()
+        .substr(0, 10),
       menu2: false,
     };
   },
@@ -177,7 +179,8 @@ export default {
       const errors = [];
       if (!this.$v.password2.$dirty) return errors;
       !this.$v.password2.required && errors.push("Re-Password is required");
-      !this.$v.password2.sameAsPassword && errors.push("Passwords must be identical.");
+      !this.$v.password2.sameAsPassword &&
+        errors.push("Passwords must be identical.");
       return errors;
     },
     phoneErrors() {
@@ -201,13 +204,33 @@ export default {
       if (this.$v.$touch()) {
         return;
       } else {
-        // const data = {
-        //   fullName: this.name,
-        //   email: this.email,
-          
-        // }
-        this.dayOfBirth = (dayjs(this.dayOfBirth).format("DD/MM/YYYY"));
-        // const res = await this.$store.dispatch('user/handleSignUp',)
+        const data = {
+          fullName: this.name,
+          email: this.email,
+          password: this.password,
+          password2: this.password2,
+          dayOfBirth: dayjs(this.dayOfBirth).format("DD/MM/YYYY"),
+          phoneNumber: this.phoneNumber,
+        };
+        try {
+          const res = await this.$store.dispatch("handleSignUp", data);
+          if (res.status === 201) {
+            this.$notify({
+              group: "foo",
+              title: "Register success",
+              text: "let's sign in now!",
+              type: "success",
+            });
+            this.$router.push('/login')
+          }
+        } catch (error) {
+          this.$notify({
+            group: "foo",
+            title: "Failed",
+            type: "error",
+            text: 'Please try again'
+          });
+        }
       }
     },
   },

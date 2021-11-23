@@ -4,6 +4,14 @@ import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
 import './index.scss';
+import Notifications from 'vue-notification'
+ 
+/*
+or for SSR:
+import Notifications from 'vue-notification/dist/ssr.js'
+*/
+ 
+Vue.use(Notifications)
 Vue.config.productionTip = false;
 
 new Vue({
