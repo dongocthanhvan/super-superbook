@@ -39,7 +39,7 @@
       <div v-else class="ml-10">
         <v-menu offset-y>
           <template v-slot:activator="{ on, attrs }">
-            <v-btn color="primary" dark v-bind="attrs" v-on="on">
+            <v-btn color="#E50914" dark v-bind="attrs" v-on="on">
               Hi {{ curUser.fullName }}
             </v-btn>
           </template>
