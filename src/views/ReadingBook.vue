@@ -6,7 +6,7 @@
           <v-toolbar flat color="#e40a1a" dark>
             <div class="flex justify-center">Tác phẩm 1234</div>
           </v-toolbar>
-          <div class="overflow-y-auto" style="height: 700px">
+          <div class="overflow-y-auto" style="height: 500px">
             <v-tabs vertical color="#e40a1a" class="">
               <v-tab
                 v-for="chapter in listChapter"
@@ -73,33 +73,6 @@ export default {
       arrowRight,
       listChapter: [
         { id: 1, name: "Chap I", page: 1 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
-        { id: 2, name: "Chap II", page: 8 },
         { id: 2, name: "Chap II", page: 8 },
       ],
       content: "<h1>hello world 4</h1> <div> v 3r1 vr 31v 13r </div>",
