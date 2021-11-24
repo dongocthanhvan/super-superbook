@@ -15,7 +15,7 @@ const ifNotAuthenticated = (to, from, next) => {
     next();
   } else {
     next({
-      name: "/",
+      name: "",
     });
   }
 };

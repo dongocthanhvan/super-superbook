@@ -7,6 +7,7 @@ import Search from "../views/Search.vue";
 import AllComic from "../views/AllComic.vue";
 import DetailBook from "../views/DetailBook.vue";
 import ReadingBook from "../views/ReadingBook.vue";
+import NotFound from "../components/Error.vue";
 import { ifAuthenticated, ifNotAuthenticated } from "../plugins/authenticate";
 Vue.use(VueRouter);
 
@@ -59,6 +60,11 @@ const routes = [
     name: "Reading book",
     component: ReadingBook,
     beforeEnter: ifAuthenticated,
+  },
+  {
+    path: "*",
+    name: "Not found",
+    component: NotFound,
   },
 ];
 
