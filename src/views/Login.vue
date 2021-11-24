@@ -119,19 +119,15 @@ export default {
                 text: res.data.message,
               });
             } else {
-              this.$notify({
-                group: "foo",
-                title: "Login success",
-                type: "success",
-              });
               localStorage.setItem("access_vue_token", res.data.token);
               localStorage.setItem("curUser", JSON.stringify(res.data.user));
               const data = {
                 user: res.data.user,
               };
               this.$store.commit("SET_LOGIN_INFO", data);
+              window.location.href="/"
             }
-            window.location.href="/"
+            
           }
         } catch (error) {
           this.$notify({
