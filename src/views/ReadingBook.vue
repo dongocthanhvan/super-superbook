@@ -6,15 +6,17 @@
           <v-toolbar flat color="#e40a1a" dark>
             <div class="flex justify-center">Tác phẩm 1234</div>
           </v-toolbar>
-          <v-tabs vertical color="#e40a1a">
-            <v-tab
-              v-for="chapter in listChapter"
-              :key="chapter.id"
-              @click="detailChapter(chapter.page)"
-            >
-              {{ chapter.name }}
-            </v-tab>
-          </v-tabs>
+          <div class="overflow-y-auto" style="height: 700px">
+            <v-tabs vertical color="#e40a1a" class="">
+              <v-tab
+                v-for="chapter in listChapter"
+                :key="chapter.id"
+                @click="detailChapter(chapter.page)"
+              >
+                {{ chapter.name }}
+              </v-tab>
+            </v-tabs>
+          </div>
         </v-card>
       </v-col>
       <v-col v-if="loading" cols="9" class="flex justify-center h-full">
@@ -71,6 +73,33 @@ export default {
       arrowRight,
       listChapter: [
         { id: 1, name: "Chap I", page: 1 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
+        { id: 2, name: "Chap II", page: 8 },
         { id: 2, name: "Chap II", page: 8 },
       ],
       content: "<h1>hello world 4</h1> <div> v 3r1 vr 31v 13r </div>",
